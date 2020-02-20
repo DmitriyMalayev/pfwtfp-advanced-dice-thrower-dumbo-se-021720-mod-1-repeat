@@ -15,13 +15,13 @@ def generate_hash_set(number)
   hash
 end
 
-def lucky_number_seven(source)
-  totals = source.reduce({}) do |memo, e|
+def lucky_number_seven(src)
+  totals = src.reduce({}) do |memo, e|
     memo[e[0]] = e[1].reduce(&:+)
     memo
   end
   if !totals.values.include?(7)
-    print "No such luck this time!"
+    print  "No such luck this time!"
   else
     if totals.values.join('').match(/77/)
       print "Wow, you're on a roll!"
@@ -33,7 +33,7 @@ def lucky_number_seven(source)
 end
 
 def roll_prompt(number_of_sides)
-  if number_of_sides.between(3, 100)
+  if number_of_sides.between?(3, 100)
     print "We're rolling a #{number_of_sides} sided die!"
     throw_variable_die(number_of_sides)
   else
